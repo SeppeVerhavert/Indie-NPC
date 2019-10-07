@@ -61,6 +61,7 @@ function generateFirstLine() {
     console.log(rollTable(library.age));
     console.log(rollTable(library.gender));
     console.log(rollTable(library.race));
+    console.log(rollTable(library.occupations));
 }
 
 function rollTable(element) {

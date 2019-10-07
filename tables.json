@@ -301,13 +301,11 @@
         "Deinonychus"
     ],
     "occupations": [
-        "destroying something",
-        "building something",
         "doing repairs",
         "telling a joke",
         "cursing out someone",
         "doing his job’s main task",
-        "riding by",
+        "running past",
         "making a meal",
         "doing his hobby",
         "dancing to a tune",
@@ -320,7 +318,9 @@
         "smoking a pipe",
         "praying to a god",
         "whistling a tune",
-        "gossiping"
+        "gossiping",
+        "eating",
+        "doing something shady"
     ],
     "moods": [
         "Compassionate",
