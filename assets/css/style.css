@@ -4,18 +4,19 @@
 }
 
 body {
-    background-image: url("/assets/img/bg_dragon.jpeg");
-    background-size: cover;
+    background: url("../img/bg_dragon.jpeg");
+    background-size: 250%;
+    background-position: 50%;
 }
 
 .container {
     box-sizing: border-box;
-    width: 100%;
+    width: 90%;
     min-height: 28em;
     margin: 5% auto;
     padding: 0;
     text-align: center;
-    background-color: rgba(233, 233, 233, 0.2);
+    background-color: rgba(233, 233, 233, 0.705);
     border-radius: 5%;
 }
 
@@ -31,7 +32,7 @@ body {
     min-height: 20em;
     margin: 1em;
     text-align: center;
-    background-color: rgba(206, 206, 208, 0.2);
+    background-color: rgba(255, 255, 255, 0.7);
     border-radius: 5%;
 }
 
@@ -48,5 +49,11 @@ body {
 @media only screen and (min-width: 768px) {
     .container {
         width: 25%;
+    }
+
+    body {
+        background: url("../img/bg_dragon.jpeg");
+        background-size: cover;
+        background-position: 50% 50%;
     }
 }
