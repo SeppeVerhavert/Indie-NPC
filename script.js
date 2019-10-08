@@ -29,14 +29,14 @@ function generateFirstLine() {
     if (race === "Monster or member of an exotic race") {
         race = rollTable(library.exoticRace);
     }
-    let firstLineText = "Is a " + rollTable(library.physicalDescription) + " " + rollTable(library.age) + " " + rollTable(library.gender) + " " + race + ", currently " + rollTable(library.occupations) + ". Has " + rollFeature(specialFeatures) + ", " + rollFeature(specialFeatures) + " and "+ rollFeature(specialFeatures) + ".";
+    let firstLineText = "Is a " + rollTable(library.physicalDescription) + " " + rollTable(library.age) + " " + rollTable(library.gender) + " " + race + ", currently " + rollTable(library.occupations) + ". Has " + rollFeature(specialFeatures) + ", " + rollFeature(specialFeatures) + " and " + rollFeature(specialFeatures) + ".";
     firstline.innerHTML += firstLineText;
 }
 
 function rollFeature(specialFeatures) {
     let newFeature = rollTable(specialFeatures);
-    specialFeatures.splice(specialFeatures.indexOf(newFeature),1);
-    if (newFeature === "jewelry"){
+    specialFeatures.splice(specialFeatures.indexOf(newFeature), 1);
+    if (newFeature === "jewelry") {
         let feature = rollTable(library.jewelryMaterial) + " " + rollTable(library[newFeature]);
         return feature;
     } else {
@@ -64,13 +64,36 @@ function generateSecondLine() {
 
 function rollQuirk(quirks) {
     let newQuirk = rollTable(quirks);
-    quirks.splice(quirks.indexOf(newQuirk,1));
-    if (newQuirk === "faiths"){
+    quirks.splice(quirks.indexOf(newQuirk, 1));
+    if (newQuirk === "faiths") {
         let quirk = rollTable(library[newQuirk]) + " " + rollTable(library.deities);
         return quirk;
-    } else if (newQuirk === "factions"){
+    } else if (newQuirk === "factions") {
         let quirk = rollTable(library.sympathy) + " " + rollTable(library[newQuirk]);
         return quirk;
+    } else if (newQuirk === "prejudices") {
+        let x = Math.floor(Math.random() * 5 + 1)
+        if (x === 0) {
+            let quirk = library.prejudice[x];
+            return quirk;
+        } else {
+            if(x === 1){
+                let quirk = library.prejudices[x] + " (" + rollTable(library.prejAge) + ")";
+                return quirk;
+            } else if(x === 2){
+                let quirk = library.prejudices[x] + " (" + rollTable(library.prejClass) + ")";
+                return quirk;
+            } else if(x === 3){
+                let quirk = library.prejudices[x] + " (" + rollTable(library.prejDeviants) + ")";
+                return quirk;
+            } else if(x === 4){
+                let quirk = library.prejudices[x] + " (" + rollTable(library.prejProfession) + ")";
+                return quirk;
+            } else if(x === 5){
+                let quirk = library.prejudices[x] + " (" + rollTable(library.prejRace) + ")";
+                return quirk;
+            } 
+        }
     } else {
         let quirk = rollTable(library[newQuirk]);
         return quirk;
