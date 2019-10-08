@@ -1,37 +1,6 @@
-## Welcome to GitHub Pages
+A RPG generator to generate interesting Non-Player Characters in 3 lines.
 
-You can use the [editor on GitHub](https://github.com/SeppeVerhavert/3-Line-NPC/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
-
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/SeppeVerhavert/3-Line-NPC/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+This generator uses:
+- The 3 Line NPC Method by !(Johnn Four RoleplayingTips)[https://www.roleplayingtips.com/rptn/the-3-line-npc-method-how-to-create-story-full-npcs-fast-rpt575a/?utm_source=ActiveCampaign&utm_medium=email&utm_content=The+Three+Word+NPC+Formula&utm_campaign=The+Three+Word+NPC+Formula]
+- d100 tables from !(/rd100)[https://www.reddit.com/r/d100/]
+- background picture !(Clint Bustrillos)[https://unsplash.com/photos/X-A-LJVAhzk]
