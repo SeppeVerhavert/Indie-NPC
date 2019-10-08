@@ -64,7 +64,7 @@ function generateSecondLine() {
 
 function rollQuirk(quirks) {
     let newQuirk = rollTable(quirks);
-    quirks.splice(quirks.indexOf(newQuirk, 1));
+    quirks.splice(quirks.indexOf(newQuirk), 1);
     if (newQuirk === "faiths") {
         let quirk = rollTable(library[newQuirk]) + " " + rollTable(library.deities);
         return quirk;
