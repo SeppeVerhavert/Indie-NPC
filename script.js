@@ -1,40 +1,6 @@
 let btn = document.getElementById('generateBtn');
 btn.addEventListener('click', generateNpc);
 
-let firstLineArray = [
-    "physicalDescription",
-    "age",
-    "gender",
-    "race",
-    "exoticRace",
-    "eyes",
-    "mouth",
-    "hair",
-    "face",
-    "scar",
-    "tattoo",
-    "jewelry",
-    "jewelryMaterial",
-    "clothing",
-    "pets",
-    "occupations",
-];
-let secondLineArray = [
-    "moods",
-    "jobs",
-    "prejudices",
-    "faiths",
-    "quirks",
-    "traits",
-    "factions",
-    "heraldicSigns",
-    "motivations",
-    "sideplots",
-    "fears",
-    "thougths",
-    "titles",
-    "secrets",
-];
 let thirdLineArray = [
     "hooks",
     "rumors1",
@@ -57,11 +23,52 @@ function generateNpc() {
 }
 
 function generateFirstLine() {
-    console.log(rollTable(library.physicalDescription));
-    console.log(rollTable(library.age));
-    console.log(rollTable(library.gender));
-    console.log(rollTable(library.race));
-    console.log(rollTable(library.occupations));
+    let specialFeatures = [
+        "eyes",
+        "mouth",
+        "hair",
+        "face",
+        "scar",
+        "tattoo",
+        "jewelry",
+        "clothing",
+        "pets",
+    ];
+    let description = rollTable(library.physicalDescription);
+    let age = rollTable(library.age);
+    let gender = rollTable(library.gender);
+    let race = rollTable(library.race);
+    if (race === "Monster or member of an exotic race") {
+        race = rollTable(library.exoticRace);
+    }
+    let occupation = rollTable(library.occupations);
+    let firstLine = "Is a " + description + " " + age + " " + gender + " " + race + ", currently " + occupation + ".";
+    console.log(firstLine);
+    let firstFeature = rollTable(specialFeatures);
+    let secondFeature = rollTable(specialFeatures);
+    let thirdFeature = rollTable(specialFeatures);
+    console.log(rollTable(library[firstFeature]));
+    console.log(rollTable(library[secondFeature]));
+    console.log(rollTable(library[thirdFeature]));
+}
+
+function generateSecondLine() {
+    console.log("second line");
+    console.log(" ");
+    console.log(rollTable(library.moods));
+    console.log(rollTable(library.jobs));
+    console.log(rollTable(library.prejudices));
+    console.log(rollTable(library.faiths));
+    console.log(rollTable(library.quirks));
+    console.log(rollTable(library.traits));
+    console.log(rollTable(library.factions));
+    console.log(rollTable(library.heraldicSigns));
+    console.log(rollTable(library.motivations));
+    console.log(rollTable(library.sideplots));
+    console.log(rollTable(library.fears));
+    console.log(rollTable(library.thougths));
+    console.log(rollTable(library.titles));
+    console.log(rollTable(library.secrets));
 }
 
 function rollTable(element) {
