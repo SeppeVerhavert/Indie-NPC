@@ -1,20 +1,13 @@
 let btn = document.getElementById('generateBtn');
 btn.addEventListener('click', generateNpc);
 
-let thirdLineArray = [
-    "hooks",
-    "rumors1",
-    "rumors2",
-    "rumors3",
-];
-
 fetch("https://raw.githubusercontent.com/SeppeVerhavert/3-Line-NPC/master/tables.json")
     .then(response => response.json())
     .then(json => library = json);
 
 function generateNpc() {
     generateFirstLine();
-    // generateSecondLine();
+    generateSecondLine();
     // generateThirdLine();
 }
 
@@ -53,22 +46,24 @@ function rollFeature(specialFeatures) {
 }
 
 function generateSecondLine() {
-    console.log("second line");
-    console.log(" ");
-    console.log(rollTable(library.moods));
-    console.log(rollTable(library.jobs));
-    console.log(rollTable(library.prejudices));
-    console.log(rollTable(library.faiths));
-    console.log(rollTable(library.quirks));
-    console.log(rollTable(library.traits));
-    console.log(rollTable(library.factions));
-    console.log(rollTable(library.heraldicSigns));
-    console.log(rollTable(library.motivations));
-    console.log(rollTable(library.sideplots));
-    console.log(rollTable(library.fears));
-    console.log(rollTable(library.thougths));
-    console.log(rollTable(library.titles));
-    console.log(rollTable(library.secrets));
+    let secondline = document.getElementById('secondLine');
+    secondline.innerHTML = "";
+    let quirks = [
+        "prejudices",
+        "faiths",
+        "quirks",
+        "traits",
+        "factions",
+        "heraldicSigns",
+        "motivations",
+        "sideplots",
+        "fears",
+        "thougths",
+        "titles",
+        "secrets"
+    ];
+    let secondLineText = "Is a " + rollTable(library.moods) + " " + rollTable(library.jobs);
+    secondline.innerHTML += secondLineText;
 }
 
 function rollTable(element) {
