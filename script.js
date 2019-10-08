@@ -81,13 +81,12 @@ function generateThirdLine() {
     let thirdline = document.getElementById('thirdLine');
     thirdline.innerHTML = "";
     let hook = [
-        "hooks",
         "sideplots",
         "secrets",
         "motivations"
     ];
     let newHook = rollTable(hook);
-    let thirdLineText = rollTable(library[newHook]);
+    let thirdLineText = rollTable(library[newHook]) + ".";
     thirdline.innerHTML += thirdLineText;
 }
 
