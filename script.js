@@ -8,10 +8,6 @@ let thirdLineArray = [
     "rumors3",
 ];
 
-let firstLine = [];
-let secondLine = [];
-let thirdLine = [];
-
 fetch("https://raw.githubusercontent.com/SeppeVerhavert/3-Line-NPC/master/tables.json")
     .then(response => response.json())
     .then(json => library = json);
@@ -23,6 +19,8 @@ function generateNpc() {
 }
 
 function generateFirstLine() {
+    let firstline = document.getElementById('firstLine');
+    firstline.innerHTML = "";
     let specialFeatures = [
         "eyes",
         "mouth",
@@ -34,22 +32,24 @@ function generateFirstLine() {
         "clothing",
         "pets",
     ];
-    let description = rollTable(library.physicalDescription);
-    let age = rollTable(library.age);
-    let gender = rollTable(library.gender);
     let race = rollTable(library.race);
     if (race === "Monster or member of an exotic race") {
         race = rollTable(library.exoticRace);
     }
-    let occupation = rollTable(library.occupations);
-    let firstLine = "Is a " + description + " " + age + " " + gender + " " + race + ", currently " + occupation + ".";
-    console.log(firstLine);
-    let firstFeature = rollTable(specialFeatures);
-    let secondFeature = rollTable(specialFeatures);
-    let thirdFeature = rollTable(specialFeatures);
-    console.log(rollTable(library[firstFeature]));
-    console.log(rollTable(library[secondFeature]));
-    console.log(rollTable(library[thirdFeature]));
+    let firstLineText = "Is a " + rollTable(library.physicalDescription) + " " + rollTable(library.age) + " " + rollTable(library.gender) + " " + race + ", currently " + rollTable(library.occupations) + ". Has " + rollFeature(specialFeatures) + ", " + rollFeature(specialFeatures) + " and "+ rollFeature(specialFeatures) + ".";
+    firstline.innerHTML += firstLineText;
+}
+
+function rollFeature(specialFeatures) {
+    let newFeature = rollTable(specialFeatures);
+    specialFeatures.splice(specialFeatures.indexOf(newFeature),1);
+    if (newFeature === "jewelry"){
+        let feature = rollTable(library.jewelryMaterial) + " " + rollTable(library[newFeature]);
+        return feature;
+    } else {
+        let feature = rollTable(library[newFeature]);
+        return feature;
+    }
 }
 
 function generateSecondLine() {
