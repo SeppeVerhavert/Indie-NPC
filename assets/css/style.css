@@ -12,7 +12,7 @@ body {
 .container {
     box-sizing: border-box;
     width: 90%;
-    min-height: 28em;
+    min-height: 26em;
     margin: 5% auto;
     padding: 0;
     text-align: center;
@@ -28,10 +28,10 @@ body {
 }
 
 .textfield {
-    width: 90%;
+    width: 100%;
     min-height: 20em;
-    margin: 1em;
-    text-align: center;
+    margin-top: 1em;
+    padding-bottom: 1em;
     background-color: rgba(255, 255, 255, 0.7);
     border-radius: 5%;
 }
@@ -48,12 +48,12 @@ body {
 
 @media only screen and (min-width: 768px) {
     .container {
-        width: 25%;
+        width: 40%;
     }
 
     body {
         background: url("../img/bg_dragon.jpeg");
         background-size: cover;
-        background-position: 50% 50%;
+        background-position: 0 50%;
     }
 }

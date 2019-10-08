@@ -8,7 +8,7 @@ fetch("https://raw.githubusercontent.com/SeppeVerhavert/3-Line-NPC/master/tables
 function generateNpc() {
     generateFirstLine();
     generateSecondLine();
-    // generateThirdLine();
+    generateThirdLine();
 }
 
 function generateFirstLine() {
@@ -52,18 +52,43 @@ function generateSecondLine() {
         "prejudices",
         "faiths",
         "quirks",
+        "quirks",
+        "traits",
         "traits",
         "factions",
-        "heraldicSigns",
-        "motivations",
-        "sideplots",
         "fears",
-        "thougths",
-        "titles",
-        "secrets"
     ];
-    let secondLineText = "Is a " + rollTable(library.moods) + " " + rollTable(library.jobs);
+    let secondLineText = "Is " + rollTable(library.moods) + " " + rollTable(library.jobs) + ", who " + rollQuirk(quirks) + ". Also " + rollQuirk(quirks) + ".";
     secondline.innerHTML += secondLineText;
+}
+
+function rollQuirk(quirks) {
+    let newQuirk = rollTable(quirks);
+    quirks.splice(quirks.indexOf(newQuirk,1));
+    if (newQuirk === "faiths"){
+        let quirk = rollTable(library[newQuirk]) + " " + rollTable(library.deities);
+        return quirk;
+    } else if (newQuirk === "factions"){
+        let quirk = rollTable(library.sympathy) + " " + rollTable(library[newQuirk]);
+        return quirk;
+    } else {
+        let quirk = rollTable(library[newQuirk]);
+        return quirk;
+    }
+}
+
+function generateThirdLine() {
+    let thirdline = document.getElementById('thirdLine');
+    thirdline.innerHTML = "";
+    let hook = [
+        "hooks",
+        "sideplots",
+        "secrets",
+        "motivations"
+    ];
+    let newHook = rollTable(hook);
+    let thirdLineText = rollTable(library[newHook]);
+    thirdline.innerHTML += thirdLineText;
 }
 
 function rollTable(element) {
