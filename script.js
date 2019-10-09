@@ -1,36 +1,54 @@
 let btn = document.getElementById('generateBtn');
 btn.addEventListener('click', generateNpc);
 
+let firstLock = document.getElementById('firstLock');
+let secondLock = document.getElementById('secondLock');
+let thirdLock = document.getElementById('thirdLock');
+firstLock.addEventListener('click', changeIcon);
+secondLock.addEventListener('click', changeIcon);
+thirdLock.addEventListener('click', changeIcon);
+
 fetch("https://raw.githubusercontent.com/SeppeVerhavert/3-Line-NPC/master/tables.json")
     .then(response => response.json())
     .then(json => library = json);
 
 function generateNpc() {
+    showLocks();
     generateFirstLine();
     generateSecondLine();
     generateThirdLine();
 }
 
+function showLocks(){
+    firstLock.style.display = "block";
+    secondLock.style.display = "block";
+    thirdLock.style.display = "block";
+}
+
 function generateFirstLine() {
-    let firstline = document.getElementById('firstLine');
-    firstline.innerHTML = "";
-    let specialFeatures = [
-        "eyes",
-        "mouth",
-        "hair",
-        "face",
-        "scar",
-        "tattoo",
-        "jewelry",
-        "clothing",
-        "pets",
-    ];
-    let race = rollTable(library.race);
-    if (race === "Monster or member of an exotic race") {
-        race = rollTable(library.exoticRace);
+    if (firstLock.classList.contains('fa-unlock')) {
+        let firstline = document.getElementById('firstLine');
+        firstline.innerHTML = "";
+        let specialFeatures = [
+            "eyes",
+            "mouth",
+            "hair",
+            "face",
+            "scar",
+            "tattoo",
+            "jewelry",
+            "clothing",
+            "pets",
+        ];
+        let race = rollTable(library.race);
+        if (race === "Monster or member of an exotic race") {
+            race = rollTable(library.exoticRace);
+        }
+        let firstLineText = "Is " + rollTable(library.physicalDescription) + " " + rollTable(library.age) + " " + rollTable(library.gender) + " " + race + ", currently " + rollTable(library.occupations) + ". Has " + rollFeature(specialFeatures) + ", " + rollFeature(specialFeatures) + " and " + rollFeature(specialFeatures) + ".";
+        firstline.innerHTML += firstLineText;
+    } else {
+        return
     }
-    let firstLineText = "Is a " + rollTable(library.physicalDescription) + " " + rollTable(library.age) + " " + rollTable(library.gender) + " " + race + ", currently " + rollTable(library.occupations) + ". Has " + rollFeature(specialFeatures) + ", " + rollFeature(specialFeatures) + " and " + rollFeature(specialFeatures) + ".";
-    firstline.innerHTML += firstLineText;
 }
 
 function rollFeature(specialFeatures) {
@@ -46,20 +64,24 @@ function rollFeature(specialFeatures) {
 }
 
 function generateSecondLine() {
-    let secondline = document.getElementById('secondLine');
-    secondline.innerHTML = "";
-    let quirks = [
-        "prejudices",
-        "faiths",
-        "quirks",
-        "quirks",
-        "traits",
-        "traits",
-        "factions",
-        "fears",
-    ];
-    let secondLineText = "Is " + rollTable(library.moods) + " " + rollTable(library.jobs) + ", who " + rollQuirk(quirks) + ". Also " + rollQuirk(quirks) + ".";
-    secondline.innerHTML += secondLineText;
+    if (secondLock.classList.contains('fa-unlock')) {
+        let secondline = document.getElementById('secondLine');
+        secondline.innerHTML = "";
+        let quirks = [
+            "prejudices",
+            "faiths",
+            "quirks",
+            "quirks",
+            "traits",
+            "traits",
+            "factions",
+            "fears",
+        ];
+        let secondLineText = "Is " + rollTable(library.moods) + " " + rollTable(library.jobs) + ", who " + rollQuirk(quirks) + ". Also " + rollQuirk(quirks) + ".";
+        secondline.innerHTML += secondLineText;
+    } else {
+        return;
+    }
 }
 
 function rollQuirk(quirks) {
@@ -77,22 +99,22 @@ function rollQuirk(quirks) {
             let quirk = library.prejudice[x];
             return quirk;
         } else {
-            if(x === 1){
+            if (x === 1) {
                 let quirk = library.prejudices[x] + " (" + rollTable(library.prejAge) + ")";
                 return quirk;
-            } else if(x === 2){
+            } else if (x === 2) {
                 let quirk = library.prejudices[x] + " (" + rollTable(library.prejClass) + ")";
                 return quirk;
-            } else if(x === 3){
+            } else if (x === 3) {
                 let quirk = library.prejudices[x] + " (" + rollTable(library.prejDeviants) + ")";
                 return quirk;
-            } else if(x === 4){
+            } else if (x === 4) {
                 let quirk = library.prejudices[x] + " (" + rollTable(library.prejProfession) + ")";
                 return quirk;
-            } else if(x === 5){
+            } else if (x === 5) {
                 let quirk = library.prejudices[x] + " (" + rollTable(library.prejRace) + ")";
                 return quirk;
-            } 
+            }
         }
     } else {
         let quirk = rollTable(library[newQuirk]);
@@ -101,19 +123,33 @@ function rollQuirk(quirks) {
 }
 
 function generateThirdLine() {
-    let thirdline = document.getElementById('thirdLine');
-    thirdline.innerHTML = "";
-    let hook = [
-        "sideplots",
-        "secrets",
-        "motivations"
-    ];
-    let newHook = rollTable(hook);
-    let thirdLineText = rollTable(library[newHook]) + ".";
-    thirdline.innerHTML += thirdLineText;
+    if (thirdLock.classList.contains('fa-unlock')) {
+        let thirdline = document.getElementById('thirdLine');
+        thirdline.innerHTML = "";
+        let hook = [
+            "sideplots",
+            "secrets",
+            "motivations"
+        ];
+        let newHook = rollTable(hook);
+        let thirdLineText = rollTable(library[newHook]) + ".";
+        thirdline.innerHTML += thirdLineText;
+    } else {
+        return;
+    }
 }
 
 function rollTable(element) {
     tableroll = Math.floor(Math.random() * element.length);
     return element[tableroll];
+}
+
+function changeIcon() {
+    if (this.classList.contains('fa-unlock')) {
+        this.classList.remove('fa-unlock');
+        this.classList.add('fa-lock');
+    } else {
+        this.classList.remove('fa-lock');
+        this.classList.add('fa-unlock');
+    }
 }

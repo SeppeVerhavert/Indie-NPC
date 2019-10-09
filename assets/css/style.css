@@ -17,7 +17,7 @@ body {
     padding: 0;
     text-align: center;
     background-color: rgba(233, 233, 233, 0.705);
-    border-radius: 5%;
+    border-radius: 20px;
 }
 
 .btn {
@@ -29,24 +29,33 @@ body {
 
 .textfield {
     width: 100%;
-    min-height: 20em;
+    min-height: 5em;
     margin-top: 1em;
     background-color: rgba(255, 255, 255, 0.7);
-    border-radius: 5%;
-}
-
-.textfield h2 {
-    font-size: 2em;
-    padding: 10px;
-}
-
-.textfield p {
+    border-radius: 20px;
     padding: 10px;
     font-size: 1.2em;
 }
 
+.textfield p{
+    text-align: center;
+}
+
 .textfield span {
     font-size: 1em;
+    margin-top: 2em;
+}
+
+.textfield i {
+    display: none;
+    float: right;
+    padding: 0.2em;
+    border-radius: 5px;
+    z-index: 3;
+}
+
+.textfield .fa-lock {
+    color: #ff4444;
 }
 
 @media only screen and (min-width: 768px) {
