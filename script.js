@@ -33,12 +33,14 @@ function generateFirstLine() {
             "eyes",
             "mouth",
             "hair",
+            "smell",
             "face",
             "scar",
             "tattoo",
             "jewelry",
             "clothing",
             "pets",
+            "weapons"
         ];
         let race = rollTable(library.race);
         if (race === "Monster or member of an exotic race") {
