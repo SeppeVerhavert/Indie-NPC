@@ -214,7 +214,9 @@
         "the smell of dirt",
         "the smell of unwashed clothes",
         "the smell of tobacco",
-        "the smell of alcohol"
+        "the smell of alcohol",
+        "the smell of alcohol",
+        "the smell of brimstone"
     ],
     "face": [
         "high cheekbones",
@@ -893,7 +895,6 @@
         "has abnormally large forearms and/or calves",
         "is wearing an obvious wig",
         "their left eye has three pupils",
-        "constantly smells of rosemary and brimstone",
         "has a long pointy nose that curls and wiggles according their emotions",
         "has a holy symbol branded onto their right hand",
         "their teeth are made out of various rare metals",
