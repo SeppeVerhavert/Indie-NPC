@@ -6,7 +6,8 @@
 body {
     background: url("../img/bg_dragon.jpeg");
     background-size: 250%;
-    background-position: 50%;
+    background-position-x: center;
+    background-position-y: center;
 }
 
 .container {
@@ -65,7 +66,7 @@ body {
 
     body {
         background: url("../img/bg_dragon.jpeg");
-        background-size: cover;
-        background-position: 0 50%;
+        background-position-x: center;
+        background-position-y: center;
     }
 }
