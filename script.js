@@ -72,6 +72,7 @@ function generateSecondLine() {
         let quirks = [
             "prejudices",
             "faiths",
+            "crafts",
             "quirks",
             "quirks",
             "traits",
@@ -94,6 +95,11 @@ function rollQuirk(quirks) {
         return quirk;
     } else if (newQuirk === "factions") {
         let quirk = rollTable(library.sympathy) + " " + rollTable(library[newQuirk]);
+        return quirk;
+    } else if (newQuirk === "crafts") {
+        console.log(library.comitment);
+        console.log(library[newQuirk]);
+        let quirk = rollTable(library.comitment) + " " + rollTable(library[newQuirk]);
         return quirk;
     } else if (newQuirk === "prejudices") {
         let x = Math.floor(Math.random() * 5 + 1)
