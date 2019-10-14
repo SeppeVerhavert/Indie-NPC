@@ -3,7 +3,7 @@
 # Indie NPC - 5e D&D non player character Generator
 A full-on NPC generator for D&D 5e supporting PC and Mobile.
 
-[CLICK ME TO GENERATE YOUR NPC!](https://seppeverhavert.github.io/3-Line-NPC/)
+[CLICK ME TO GENERATE YOUR NPC!](https://seppeverhavert.github.io/Indie-NPC/)
 
 ![Indie NPC for PC](https://raw.githubusercontent.com/SeppeVerhavert/3-Line-NPC/master/assets/img/3lineNPC.png "Indie NPC for PC")
 
