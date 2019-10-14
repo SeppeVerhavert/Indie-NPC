@@ -1,11 +1,11 @@
 ![LICENSE MIT](https://img.shields.io/badge/LICENSE-MIT-brightgreen)
 
-# Treasure-generator
-An NPC generator for D&D 5e both for PC and Mobile.
+# Indie NPC - 5e D&D non player character Generator
+A full-on NPC generator for D&D 5e supporting PC and Mobile.
 
 [CLICK ME TO GENERATE YOUR NPC!](https://seppeverhavert.github.io/3-Line-NPC/)
 
-![3-line NPC Generator for PC](https://raw.githubusercontent.com/SeppeVerhavert/3-Line-NPC/master/assets/img/3lineNPC.png "3-line NPC Generator for PC")
+![Indie NPC for PC](https://raw.githubusercontent.com/SeppeVerhavert/3-Line-NPC/master/assets/img/3lineNPC.png "Indie NPC for PC")
 
 ## What is this?
 
